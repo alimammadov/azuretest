@@ -10,7 +10,8 @@
 
 <div class="container">
     <h1>Welcome to Our E-commerce Shop</h1>
-    
+    <p>Loading content from the API: <b id="name">...</b></p>
+
     <div class="product">
         <img src="placeholder1.jpg" alt="Product 1">
         <h2>Product 1</h2>
@@ -35,6 +36,11 @@
         <button>Add to Cart</button>
     </div>
 </div>
-
+<script>
+    (async function() {
+        const { text } = await( await fetch(`/api/message`)).json();
+        document.querySelector('#name').textContent = text;
+    }());
+    </script>
 </body>
 </html>
